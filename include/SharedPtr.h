@@ -29,11 +29,6 @@ public:
             delete ptr;
             delete counter;
         }
-        else{
-            --counter;
-            ptr = nullptr;
-            delete counter;
-        }
     }
     auto operator= (const SharedPtr& r) -> SharedPtr&{
         r.swap(*this);
