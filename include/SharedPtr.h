@@ -25,10 +25,8 @@ public:
         counter = std::move(counter);
     }
     ~SharedPtr(){
-        if(*counter == 1){
-            delete ptr;
-            delete counter;
-        }
+        ptr = nullptr;
+        counter = nullptr;
     }
     auto operator= (const SharedPtr& r) -> SharedPtr&{
         r.swap(*this);
@@ -55,7 +53,6 @@ public:
             return 0;
         }
         else{
-            std::cout << *ptr << std::endl;
             return ptr;
         }
     }
