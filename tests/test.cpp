@@ -1,7 +1,12 @@
 // Copyright 2018 Your Name <your_email>
 
 #include <gtest/gtest.h>
+#include <header.hpp>
+#include <SharedPtr.h>
 
 TEST(Example, EmptyTest) {
-    EXPECT_TRUE(true);
+    SharedPtr a = SharedPtr(new int(5));
+    auto b = a; // NOLINT
+    *b = 7;
+    EXPECT_EQ(b.use_count(), 2);
 }

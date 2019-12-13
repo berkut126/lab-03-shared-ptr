@@ -32,11 +32,11 @@ find_package(GTest CONFIG REQUIRED)
 add_library(template STATIC
   # enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
-)
+        include/SharedPtr.h)
 add_executable(tests
   # TODO: enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
-)
+        include/SharedPtr.h)
 
 # TODO: change template word to project name and delete this comment
 target_include_directories(template 
