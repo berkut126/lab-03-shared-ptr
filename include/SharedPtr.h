@@ -25,8 +25,6 @@ public:
         counter = std::move(counter);
     }
     ~SharedPtr(){
-        ptr = nullptr;
-        counter = nullptr;
         delete ptr;
         delete counter;
     }
