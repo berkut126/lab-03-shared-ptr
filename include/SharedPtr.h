@@ -25,8 +25,13 @@ public:
         counter = std::move(counter);
     }
     ~SharedPtr(){
-        ptr = nullptr;
-        counter = nullptr;
+        --(*counter);
+        if(*counter == 0){
+            delete counter;
+            if(ptr != nullptr){
+                delete ptr;
+            }
+        }
     }
     auto operator= (const SharedPtr& r) -> SharedPtr&{
         r.swap(*this);
